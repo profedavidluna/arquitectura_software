@@ -1,0 +1,22 @@
+services:
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mvc_db
+    ports:
+      - "3306:3306"
+
+  mvc-api:
+    build: /mvcapi/.
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+
+  frontend:
+    build: /frontend-react
+    ports:
+      - "3000:80"
+    depends_on:
+      - mvc-api
