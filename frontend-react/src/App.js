@@ -11,7 +11,6 @@ function App() {
             <Container className="mt-4">
                 <h1 className="text-center mb-4">Lista de Productos</h1>
                 <ProductList />
-                <Prueba></Prueba>
             </Container>
         </>
     );

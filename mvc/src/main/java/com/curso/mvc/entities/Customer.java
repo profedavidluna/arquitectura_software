@@ -16,7 +16,8 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    private String name;
+    private String email;
     public Long getId() {
         return id;
     }
@@ -41,6 +42,5 @@ public class Customer {
         this.email = email;
     }
 
-    private String name;
-    private String email;
+
 }

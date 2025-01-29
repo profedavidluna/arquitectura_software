@@ -16,7 +16,8 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    private Long customerId;
+    private String productIds; // Lista de IDs de productos separados por comas
     public Long getId() {
         return id;
     }
@@ -41,6 +42,5 @@ public class Order {
         this.productIds = productIds;
     }
 
-    private Long customerId;
-    private String productIds; // Lista de IDs de productos separados por comas
+
 }

@@ -1,0 +1,17 @@
+com\curso\mvc\config\OpenApiConfig.class
+com\curso\mvc\entities\Customer.class
+com\curso\mvc\repository\ProductRepository.class
+com\curso\mvc\controller\ProductController.class
+com\curso\mvc\entities\Order.class
+com\curso\mvc\MvcApplication.class
+com\curso\mvc\repository\CustomerRepository.class
+com\curso\mvc\controller\OrderController.class
+com\curso\mvc\service\ProductService.class
+com\curso\mvc\entities\Order$OrderBuilder.class
+com\curso\mvc\service\CustomerService.class
+com\curso\mvc\entities\Product.class
+com\curso\mvc\service\OrderService.class
+com\curso\mvc\entities\Product$ProductBuilder.class
+com\curso\mvc\controller\CustomerController.class
+com\curso\mvc\entities\Customer$CustomerBuilder.class
+com\curso\mvc\repository\OrderRepository.class

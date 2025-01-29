@@ -7,16 +7,20 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Entity
 @Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String name;
+    private double price;
+
 
     public Long getId() {
         return id;
@@ -42,6 +46,4 @@ public class Product {
         this.price = price;
     }
 
-    private String name;
-    private double price;
 }
