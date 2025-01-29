@@ -2,6 +2,7 @@ import React from 'react';
 import CustomNavbar from './components/CustomNavBar';
 import ProductList from './components/ProductList';
 import { Container } from 'react-bootstrap';
+import Prueba from './components/Prueba';
 
 function App() {
     return (
@@ -10,6 +11,7 @@ function App() {
             <Container className="mt-4">
                 <h1 className="text-center mb-4">Lista de Productos</h1>
                 <ProductList />
+                <Prueba></Prueba>
             </Container>
         </>
     );
