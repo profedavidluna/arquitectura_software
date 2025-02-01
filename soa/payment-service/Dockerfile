@@ -12,5 +12,5 @@ RUN mvn -f /home/app/pom.xml clean package
 FROM amazoncorretto:21.0.4-alpine3.18
 WORKDIR /app
 COPY target/payment-service-1.0.0.jar app.jar
-EXPOSE 8084
+EXPOSE 8083
 ENTRYPOINT ["java", "-jar", "app.jar"]
