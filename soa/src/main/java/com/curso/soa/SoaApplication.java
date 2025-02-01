@@ -41,7 +41,7 @@ public class SoaApplication {
 		System.out.println("Productos encontrados: " + productos);
 
 		// 3. Creación del Pedido
-		Pedido pedido = crearPedido(cliente.getId(), Arrays.asList(1L, 2L)); // IDs de productos
+		Pedido pedido = crearPedido(cliente.getId(), "1,2"); // IDs de productos
 		if (pedido == null) {
 			System.out.println("Error: No se pudo crear el pedido.");
 			return;
@@ -86,7 +86,7 @@ public class SoaApplication {
 		}
 	}
 
-	private Pedido crearPedido(Long clienteId, List<Long> productosIds) {
+	private Pedido crearPedido(Long clienteId, String productosIds) {
 		try {
 			PedidoRequest pedidoRequest = new PedidoRequest(clienteId, productosIds, "Pendiente");
 			ResponseEntity<Pedido> response = restTemplate.postForEntity(ORDER_URL, pedidoRequest, Pedido.class);
@@ -111,7 +111,7 @@ public class SoaApplication {
 	private Notificacion notificarCliente(String email, String mensaje) {
 		try {
 			NotificacionRequest notificacionRequest = new NotificacionRequest(email, mensaje);
-			ResponseEntity<Notificacion> response = restTemplate.postForEntity(NOTIFICATION_URL, notificacionRequest, Notificacion.class);
+			ResponseEntity<Notificacion> response = restTemplate.postForEntity(NOTIFICATION_URL+"?email="+email+"&mensaje="+mensaje, null, Notificacion.class);
 			return response.getBody();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -155,7 +155,7 @@ class PedidoRequest {
 
 	private String estado;
 
-	public PedidoRequest(Long clienteId, List<Long> productosIds, String estado) {
+	public PedidoRequest(Long clienteId, String productosId, String estado) {
 		this.clienteId = clienteId;
 		this.productosIds = productosIds;
 		this.estado = estado;
