@@ -12,9 +12,9 @@ public class SoaApplication {
 
 	private static final String AUTH_URL = "http://localhost:8080/auth/login";
 	private static final String CATALOG_URL = "http://localhost:8081/catalog/productos";
-	private static final String ORDER_URL = "http://localhost:8083/orders";
-	private static final String PAYMENT_URL = "http://localhost:8084/payments";
-	private static final String NOTIFICATION_URL = "http://localhost:8082/notifications";
+	private static final String ORDER_URL = "http://localhost:8082/orders";
+	private static final String PAYMENT_URL = "http://localhost:8083/payments";
+	private static final String NOTIFICATION_URL = "http://localhost:8084/notifications";
 
 	private RestTemplate restTemplate = new RestTemplate();
 
