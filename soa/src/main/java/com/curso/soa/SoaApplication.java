@@ -25,7 +25,7 @@ public class SoaApplication {
 
 	public void ejecutarProceso() {
 		// 1. Autenticación del Cliente
-		Cliente cliente = autenticarCliente("cliente@example.com", "password123");
+		Cliente cliente = autenticarCliente("davidrlunag@gmail.com", "12345678");
 		if (cliente == null) {
 			System.out.println("Error: Autenticación fallida.");
 			return;
@@ -68,7 +68,7 @@ public class SoaApplication {
 	private Cliente autenticarCliente(String email, String password) {
 		try {
 			AuthRequest authRequest = new AuthRequest(email, password);
-			ResponseEntity<Cliente> response = restTemplate.postForEntity(AUTH_URL, authRequest, Cliente.class);
+			ResponseEntity<Cliente> response = restTemplate.postForEntity(AUTH_URL+"?email="+email+"&password="+password, null, Cliente.class);
 			return response.getBody();
 		} catch (Exception e) {
 			e.printStackTrace();
