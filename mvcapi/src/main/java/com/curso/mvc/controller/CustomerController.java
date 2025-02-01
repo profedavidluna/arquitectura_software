@@ -4,6 +4,7 @@ import com.curso.mvc.entities.Customer;
 import  com.curso.mvc.service.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,16 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
+
+
+    @Operation(summary = "Devuelve la lista de Clientes", description = "Devuelve la lista de Clientes", operationId = "get", tags = {"get, customers" })
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Devuelve la lista de Clientes"),
+            @ApiResponse(responseCode = "400", description = "Bad Request"),
+            @ApiResponse(responseCode = "401", description = "Unauthorized"),
+            @ApiResponse(responseCode = "403", description = "Forbidden"),
+            @ApiResponse(responseCode = "404", description = "Not found"),
+            @ApiResponse(responseCode = "500", description = "Internal Server Error")})
     @GetMapping
     public List<Customer> listCustomers() {
         return customerService.getAllCustomers();

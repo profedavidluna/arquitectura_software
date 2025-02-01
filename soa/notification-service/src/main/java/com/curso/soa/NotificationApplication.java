@@ -1,4 +1,4 @@
-package com.curso.soa.notification;
+package com.curso.soa;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

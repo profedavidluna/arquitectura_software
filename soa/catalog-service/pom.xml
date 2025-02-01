@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.curso.soa</groupId>
-    <artifactId>auth-service</artifactId>
+    <artifactId>catalog-service</artifactId>
     <version>1.0.0</version>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -24,6 +24,11 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>1.6.14</version> <!-- Verifica la versión más reciente -->
         </dependency>
     </dependencies>
 

@@ -1,3 +1,15 @@
+#
+# Build stage
+#
+FROM maven:3.6.0-jdk-11-slim AS build
+COPY src /home/app/src
+COPY pom.xml /home/app
+RUN mvn -f /home/app/pom.xml clean package
+
+#
+# Package stage
+#
+
 # Use an official Java runtime as a parent image
 FROM amazoncorretto:21.0.4-alpine3.18
 
