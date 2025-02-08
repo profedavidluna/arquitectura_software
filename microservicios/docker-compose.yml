@@ -1,0 +1,96 @@
+version: '3.8'
+
+services:
+  eureka-server:
+    image: eureka-server
+    build:
+      context: ./eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - tienda-network
+
+  api-gateway:
+    image: api-gateway
+    build:
+      context: ./api-gateway
+    ports:
+      - "8080:8080"
+    networks:
+      - tienda-network
+    depends_on:
+      - eureka-server
+
+  auth-service:
+    image: auth-service
+    build:
+      context: ./auth-service
+    networks:
+      - tienda-network
+    environment:
+      - EUREKA_SERVER=http://eureka-server:8761/eureka
+
+  catalog-service:
+    image: catalog-service
+    build:
+      context: ./catalog-service
+    networks:
+      - tienda-network
+    environment:
+      - EUREKA_SERVER=http://eureka-server:8761/eureka
+
+  order-service:
+    image: order-service
+    build:
+      context: ./order-service
+    networks:
+      - tienda-network
+    environment:
+      - EUREKA_SERVER=http://eureka-server:8761/eureka
+
+  payment-service:
+    image: payment-service
+    build:
+      context: ./payment-service
+    networks:
+      - tienda-network
+    environment:
+      - EUREKA_SERVER=http://eureka-server:8761/eureka
+
+  notification-service:
+    image: notification-service
+    build:
+      context: ./notification-service
+    networks:
+      - tienda-network
+    environment:
+      - EUREKA_SERVER=http://eureka-server:8761/eureka
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - tienda-network
+    depends_on:
+      - api-gateway
+      - auth-service
+      - catalog-service
+      - order-service
+      - payment-service
+      - notification-service
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    networks:
+      - tienda-network
+    depends_on:
+      - prometheus
+
+networks:
+  tienda-network:
+    driver: bridge
