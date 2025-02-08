@@ -66,30 +66,30 @@ services:
     environment:
       - EUREKA_SERVER=http://eureka-server:8761/eureka
 
-  prometheus:
-    image: prom/prometheus
-    ports:
-      - "9090:9090"
-    volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
-    networks:
-      - tienda-network
-    depends_on:
-      - api-gateway
-      - auth-service
-      - catalog-service
-      - order-service
-      - payment-service
-      - notification-service
+  #prometheus:
+  #  image: prom/prometheus
+  #  ports:
+  #    - "9090:9090"
+  #  volumes:
+  #    - ./prometheus.yml:/etc/prometheus/prometheus.yml
+  #  networks:
+  ##    - tienda-network
+  # depends_on:
+  ##   - api-gateway
+  #    - auth-service
+  #    - catalog-service
+  #    - order-service
+  #    - payment-service
+  #    - notification-service
 
-  grafana:
-    image: grafana/grafana
-    ports:
-      - "3000:3000"
-    networks:
-      - tienda-network
-    depends_on:
-      - prometheus
+  #grafana:
+  #  image: grafana/grafana
+  #  ports:
+  #    - "3000:3000"
+  #  networks:
+  #    - tienda-network
+  #  depends_on:
+  #    - prometheus
 
 networks:
   tienda-network:
