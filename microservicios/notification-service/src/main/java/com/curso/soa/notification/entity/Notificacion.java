@@ -12,7 +12,8 @@ public class Notificacion {
     private Long id;
     private String email;
     private String mensaje;
-
+    public Notificacion() {
+    }
     public Long getId() {
         return id;
     }

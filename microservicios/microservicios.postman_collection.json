@@ -1,0 +1,345 @@
+{
+	"info": {
+		"_postman_id": "038898de-3ef5-48f6-89b8-e9fc0b79b911",
+		"name": "Curso",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5920326"
+	},
+	"item": [
+		{
+			"name": "Arquitectura de Software",
+			"item": [
+				{
+					"name": "Product",
+					"item": [
+						{
+							"name": "Get Product",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\r\n        \"id\":7,\r\n        \"name\": \"Producto Test\",\r\n        \"price\": 564.0\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8079/catalog/productos",
+									"host": [
+										"localhost"
+									],
+									"port": "8079",
+									"path": [
+										"catalog",
+										"productos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Producto",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n        \"id\":8,\r\n        \"name\": \"Producto Test1\",\r\n        \"price\": 564.0\r\n    },",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8079/catalog/products",
+									"host": [
+										"localhost"
+									],
+									"port": "8079",
+									"path": [
+										"catalog",
+										"products"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Registrar Cliente",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\":\"David Luna2\",\r\n    \"email\":\"cliente@example.com\", \r\n    \"password\":\"password123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8079/auth/registro",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8079",
+									"path": [
+										"auth",
+										"registro"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "cliente@example.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "password123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Users",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8079/auth",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8079",
+									"path": [
+										"auth"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Orders",
+					"item": [
+						{
+							"name": "add Order",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\":1,\r\n  \"clienteId\": 1,\r\n  \"productosIds\": \"1, 2\",\r\n  \"estado\": \"Pendiente\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8079/orders",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8079",
+									"path": [
+										"orders"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Orders",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8079/orders",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8079",
+									"path": [
+										"orders"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Notifications",
+					"item": [
+						{
+							"name": "New Request",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8079/notifications?email=prueba@gmail.com&mensaje=Prueba de Mensaje",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8079",
+									"path": [
+										"notifications"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "prueba@gmail.com"
+										},
+										{
+											"key": "mensaje",
+											"value": "Prueba de Mensaje"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Notifications",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8079/notifications",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8079",
+									"path": [
+										"notifications"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Payments",
+					"item": [
+						{
+							"name": "Add Payment",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":1,\r\n    \"pedidoId\":1,\r\n    \"monto\":900,\r\n    \"estado\":\"Pendiente\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8079/payments",
+									"host": [
+										"localhost"
+									],
+									"port": "8079",
+									"path": [
+										"payments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Payments",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8079/payments",
+									"host": [
+										"localhost"
+									],
+									"port": "8079",
+									"path": [
+										"payments"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Analitica",
+					"item": [
+						{
+							"name": "Get Data",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8079/analitica",
+									"host": [
+										"localhost"
+									],
+									"port": "8079",
+									"path": [
+										"analitica"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

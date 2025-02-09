@@ -17,4 +17,8 @@ public class CatalogService {
     public List<Product> obtenerProductos() {
         return productoRepository.findAll();
     }
+
+    public Product addProducto(Product p) {
+        return productoRepository.save(p);
+    }
 }

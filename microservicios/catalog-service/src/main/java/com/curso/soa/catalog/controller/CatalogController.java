@@ -21,4 +21,9 @@ public class CatalogController {
     public List<Product> obtenerProductos() {
         return catalogService.obtenerProductos();
     }
+
+    @PostMapping("/productos")
+    public Product addProduct(@RequestBody Product p) {
+        return catalogService.addProducto(p);
+    }
 }

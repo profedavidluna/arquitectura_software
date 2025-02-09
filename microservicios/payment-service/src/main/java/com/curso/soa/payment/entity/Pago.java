@@ -7,6 +7,15 @@ import javax.persistence.Id;
 
 @Entity
 public class Pago {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private Long pedidoId;
+    private Double monto;
+    private String estado;
+
+    public Pago() {
+    }
     public Long getId() {
         return id;
     }
@@ -39,12 +48,4 @@ public class Pago {
         this.estado = estado;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private Long pedidoId;
-    private Double monto;
-    private String estado;
-
-    // Getters y Setters
 }

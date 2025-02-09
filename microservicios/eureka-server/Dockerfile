@@ -12,5 +12,5 @@ RUN mvn -f /home/app/pom.xml clean package
 FROM amazoncorretto:21.0.4-alpine3.18 as runtime
 WORKDIR /app
 COPY target/eureka-server-1.0.0.jar app.jar
-EXPOSE 8769
+EXPOSE 8761
 ENTRYPOINT ["java", "-jar", "app.jar"]

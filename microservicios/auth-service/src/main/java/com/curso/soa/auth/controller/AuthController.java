@@ -5,6 +5,8 @@ import com.curso.soa.auth.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
@@ -20,5 +22,9 @@ public class AuthController {
     @PostMapping("/login")
     public Cliente autenticarCliente(@RequestParam String email, @RequestParam String password) {
         return authService.autenticarCliente(email, password);
+    }
+    @GetMapping
+    public List<Cliente> autenticarCliente() {
+        return authService.getClientes();
     }
 }

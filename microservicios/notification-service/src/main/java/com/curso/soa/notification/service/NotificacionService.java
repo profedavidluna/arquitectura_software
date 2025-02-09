@@ -5,6 +5,8 @@ import com.curso.soa.notification.repository.NotificacionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class NotificacionService {
 
@@ -16,5 +18,9 @@ public class NotificacionService {
         notificacion.setEmail(email);
         notificacion.setMensaje(mensaje);
         return notificacionRepository.save(notificacion);
+    }
+
+    public List<Notificacion> getNotifications() {
+        return notificacionRepository.findAll();
     }
 }

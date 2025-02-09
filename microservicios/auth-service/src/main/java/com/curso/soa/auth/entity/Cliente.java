@@ -16,6 +16,9 @@ public class Cliente {
     private String email;
     private String password;
 
+    public Cliente() {
+    }
+
     public Long getId() {
         return id;
     }

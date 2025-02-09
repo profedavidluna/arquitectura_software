@@ -10,13 +10,25 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    public Long getId() {
-        return id;
+    private String nombre;
+    private float monto;
+    private String categoria;
+    public Product() {
+    }
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public float getMonto() {
+        return monto;
+    }
+
+    public void setMonto(float monto) {
+        this.monto = monto;
     }
 
     public String getNombre() {
@@ -27,25 +39,13 @@ public class Product {
         this.nombre = nombre;
     }
 
-    public String getEmail() {
-        return email;
+    public Long getId() {
+        return id;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getPassword() {
-        return password;
-    }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    private String nombre;
-    private String email;
-    private String password;
-
-    // Getters y Setters
 }
