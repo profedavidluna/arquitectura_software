@@ -14,9 +14,6 @@ public class KafkaProducerService {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    public void sendAuthMessage(String message) {
-        kafkaTemplate.send("auth-topic", message);
-    }
 
     public void sendPaymentMessage(String message) {
         kafkaTemplate.send("payment-topic", message);
