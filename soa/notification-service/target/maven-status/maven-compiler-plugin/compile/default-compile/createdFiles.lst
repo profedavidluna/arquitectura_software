@@ -1,0 +1,5 @@
+com\curso\soa\notification\entity\Notificacion.class
+com\curso\soa\notification\controller\NotificacionController.class
+com\curso\soa\NotificationApplication.class
+com\curso\soa\notification\repository\NotificacionRepository.class
+com\curso\soa\notification\service\NotificacionService.class
