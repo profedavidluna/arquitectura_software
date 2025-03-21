@@ -1,0 +1,5 @@
+com\curso\soa\SoaApplication.class
+com\curso\soa\auth\entity\Pedido.class
+com\curso\soa\auth\controller\OrderController.class
+com\curso\soa\auth\repository\PedidoRepository.class
+com\curso\soa\auth\service\OrderService.class

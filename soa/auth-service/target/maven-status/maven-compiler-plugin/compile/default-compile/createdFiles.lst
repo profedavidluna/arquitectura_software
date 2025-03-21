@@ -1,0 +1,5 @@
+com\curso\soa\SoaApplication.class
+com\curso\soa\auth\controller\AuthController.class
+com\curso\soa\auth\entity\Cliente.class
+com\curso\soa\auth\service\AuthService.class
+com\curso\soa\auth\repository\ClienteRepository.class

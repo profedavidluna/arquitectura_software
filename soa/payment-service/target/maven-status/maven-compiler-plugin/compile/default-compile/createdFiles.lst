@@ -1,0 +1,5 @@
+com\curso\soa\payment\entity\Pago.class
+com\curso\soa\SoaApplication.class
+com\curso\soa\payment\controller\PaymentController.class
+com\curso\soa\payment\service\PaymentService.class
+com\curso\soa\payment\repository\PagoRepository.class

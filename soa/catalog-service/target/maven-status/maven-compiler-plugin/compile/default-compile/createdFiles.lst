@@ -1,0 +1,5 @@
+com\curso\soa\catalog\entity\Product.class
+com\curso\soa\SoaApplication.class
+com\curso\soa\catalog\repository\ProductRepository.class
+com\curso\soa\catalog\controller\CatalogController.class
+com\curso\soa\catalog\service\CatalogService.class
