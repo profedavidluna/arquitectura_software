@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   eureka-server:
-    image: eureka-server
+    image: profedavidluna/ms-eureka-server:lastest
     build:
       context: ./eureka-server
     ports:
@@ -11,7 +11,7 @@ services:
       - tienda-network
 
   api-gateway:
-    image: api-gateway
+    image: profedavidluna/ms-api-gateway:lastest
     build:
       context: ./api-gateway
     ports:
@@ -22,7 +22,7 @@ services:
       - eureka-server
 
   auth-service:
-    image: auth-service
+    image: profedavidluna/ms-auth-service:lastest
     build:
       context: ./auth-service
     networks:
@@ -33,7 +33,7 @@ services:
       - analitica-service
 
   catalog-service:
-    image: catalog-service
+    image: profedavidluna/ms-catalog-service:lastest
     build:
       context: ./catalog-service
     networks:
@@ -42,7 +42,7 @@ services:
       - EUREKA_SERVER=http://eureka-server:8761/eureka
 
   order-service:
-    image: order-service
+    image: profedavidluna/ms-order-service:lastest
     build:
       context: ./order-service
     networks:
@@ -51,7 +51,7 @@ services:
       - EUREKA_SERVER=http://eureka-server:8761/eureka
 
   payment-service:
-    image: payment-service
+    image: profedavidluna/ms-payment-service:lastest
     build:
       context: ./payment-service
     networks:
@@ -62,7 +62,7 @@ services:
       - analitica-service
 
   analitica-service:
-    image: analitica-service
+    image: profedavidluna/ms-analitica-service:lastest
     build:
       context: ./analitica-service
     networks:
@@ -73,7 +73,7 @@ services:
       - kafka
 
   notification-service:
-    image: notification-service
+    image: profedavidluna/ms-notification-service:lastest
     build:
       context: ./notification-service
     networks:

@@ -1,17 +1,16 @@
 package com.curso.mvc.controller;
-import com.curso.mvc.entities.Customer;
+import com.curso.mvc.dto.CustomerDTO;
 import com.curso.mvc.entities.Customer;
 import  com.curso.mvc.service.*;
+import com.curso.mvc.util.ResponseHandler;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/customers")
@@ -19,8 +18,6 @@ import java.util.List;
 public class CustomerController {
     @Autowired
     private CustomerService customerService;
-
-
 
     @Operation(summary = "Devuelve la lista de Clientes", description = "Devuelve la lista de Clientes", operationId = "get", tags = {"get, customers" })
     @ApiResponses(value = {
@@ -31,18 +28,18 @@ public class CustomerController {
             @ApiResponse(responseCode = "404", description = "Not found"),
             @ApiResponse(responseCode = "500", description = "Internal Server Error")})
     @GetMapping
-    public List<Customer> listCustomers() {
-        return customerService.getAllCustomers();
+    public ResponseEntity<Object> listCustomers() {
+        return ResponseHandler.generateResponse("Customers retrieved successfully", HttpStatus.OK,customerService.getAllCustomers());
     }
 
     @GetMapping("/{id}")
-    public Customer getCustomer(@PathVariable Long id) {
-        return customerService.getCustomerById(id);
+    public ResponseEntity<Object>  getCustomer(@PathVariable Long id) {
+        return ResponseHandler.generateResponse("Customer retrieved successfully", HttpStatus.OK,customerService.getCustomerById(id));
     }
 
     @PostMapping
-    public Customer createCustomer(@RequestBody Customer Customer) {
-        return customerService.saveCustomer(Customer);
+    public ResponseEntity<Object>  createCustomer(@RequestBody CustomerDTO customer) {
+        return ResponseHandler.generateResponse("Customer created successfully", HttpStatus.CREATED,customerService.saveCustomer(CustomerDTO.from(customer)));
     }
 
     @PutMapping("/{id}")
